@@ -1,0 +1,48 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #4a90e2; /* Blue */
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff; /* White text */
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease; /* Smooth transition for color */
+}
+
+nav a:hover {
+    color: #f5f5dc; /* Beige on hover */
+}
+
+section {
+    padding: 50px;
+    background-color: #f5f5dc; /* Beige */
+    color: #333; /* Dark text */
+    text-align: center;
+    margin: 20px;
+}
+
+h2 {
+    color: #4a90e2; /* Blue */
+}
+
+/* Add more styles as needed */
