@@ -16,3 +16,27 @@ function fetchData() {
 
 // Call the function to fetch data
 fetchData();
+
+$(document).ready(function () {
+  // Select all anchor links in the navbar
+  const navLinks = $('nav a');
+
+  // Add click event listener to each link
+  navLinks.on('click', function (event) {
+      event.preventDefault();
+
+      // Get the target section ID from the href attribute
+      const targetSectionId = $(this).attr('href').substring(1);
+
+      // Scroll to the target section
+      $('#' + targetSectionId).get(0).scrollIntoView({
+          behavior: 'smooth'
+      });
+  });
+
+  $('#refreshButton').on('click', function () {
+    // Reload the entire page
+    location.reload(true);
+  });
+
+});
