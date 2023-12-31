@@ -6,15 +6,53 @@ const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQCyNsRhvPH_vz
 // Fetch data from the published Google Sheet
 function fetchData() {
   $.get(sheetURL, function (data) {
-    // Process the data as needed
-    console.log('Data from Google Sheet:', data);
+    Papa.parse(data, {
+      header: true, // Assuming the first row contains headers
+      dynamicTyping: true,
+      complete: function (results) {
+        // Process the parsed data as needed
+        const csvData = results.data
+
+        console.log('Data from Google Sheet:', csvData);
+        console.log('Data Type:', typeof csvData);
+        createChart(parsedData);
+      }
+    });
   })
   .fail(function (error) {
     console.error('Error fetching data:', error);
   });
 }
 
-// Call the function to fetch data
+function createChart(data) {
+  // Your chart creation logic using Chart.js
+  // Example: A bar chart showing the count of "2" for each activity
+
+  const activities = ["Kayakalpam", "Eye", "Leg", "Breathing", "Meditation"];
+  const dataCounts = activities.map(activity => data.filter(entry => entry[activity] === 2).length);
+
+  const ctx = $('#activityChart')[0].getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: activities,
+      datasets: [{
+        label: 'Count of "2"',
+        data: dataCounts,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
 
 
 $(document).ready(function () {
