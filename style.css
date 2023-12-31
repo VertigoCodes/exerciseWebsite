@@ -42,10 +42,13 @@ nav a:hover {
 
 section {
     padding: 16px;
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     background-color: #f5f5dc; /* Beige */
     color: #333; /* Dark text */
-    text-align: center;
-    margin: 16px;
 }
 
 h2 {
@@ -56,7 +59,8 @@ h2 {
 button{
     background-color: #4a90e2; /* Blue */
     color: #fff; /* White text */
-    display: inline-block;
+    padding: 8px 2px;
+    margin: 16px;
     text-align: center;
     font-size: 16px;
     padding: 10px 15px;
@@ -69,6 +73,7 @@ button{
 button:hover {
     background-color: #f5f5dc; /* Darker blue on hover */
     color: #4a90e2 ; 
+    border: #333 1px inset;
 }
 
 /* Add more styles as needed */
